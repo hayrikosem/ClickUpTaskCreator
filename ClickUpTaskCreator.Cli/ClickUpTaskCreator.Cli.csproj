@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>ctask </PackageId>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <Authors>Çetin Hayri Kösem</Authors>
     <Company>CHK Solutions Inc</Company>
     <Description>Clickup task creator.</Description>
@@ -15,7 +15,7 @@
     <PackageOutputPath>bin\$(Configuration)</PackageOutputPath>
 	<PackAsTool>true</PackAsTool>
 	  <ToolCommandName>ctask</ToolCommandName>
-	  
+	  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
