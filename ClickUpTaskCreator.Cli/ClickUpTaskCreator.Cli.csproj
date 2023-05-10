@@ -15,7 +15,7 @@
     <PackageOutputPath>bin\$(Configuration)</PackageOutputPath>
 	<PackAsTool>true</PackAsTool>
 	  <ToolCommandName>ctask</ToolCommandName>
-	  <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	  <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,12 +23,6 @@
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta4.22272.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="appsettings.development.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
