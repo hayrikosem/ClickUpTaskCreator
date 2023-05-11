@@ -1,4 +1,5 @@
 ﻿using ClickUpTaskCreator.Cli.Dtos;
+using ClickUpTaskCreator.Cli.Exceptions;
 using ClickUpTaskCreator.Cli.Helpers;
 using ClickUpTaskCreator.Cli.Options;
 using Microsoft.Extensions.Logging;
@@ -22,6 +23,7 @@ namespace ClickUpTaskCreator.Cli.Commands
         {
             _options = options;
             _configuration = configuration;
+            CheckConfiguration();
             _logger = logger;
             _client = clientFactory.CreateClient();
         }
@@ -51,6 +53,18 @@ namespace ClickUpTaskCreator.Cli.Commands
             
 
             return 0;
+        }
+
+        private void CheckConfiguration()
+        {
+            if(_configuration == null || string.IsNullOrWhiteSpace(_configuration.ApiKey))
+            {
+                throw new ConfigurationNotFoundException(nameof(_configuration.ApiKey));
+            }
+            if (string.IsNullOrWhiteSpace(_configuration.ListId))
+            {
+                throw new ConfigurationNotFoundException(nameof(_configuration.ListId));
+            }
         }
     }
 }

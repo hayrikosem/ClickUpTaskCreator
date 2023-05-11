@@ -12,14 +12,14 @@ public static class RegistryHelpers
     {
         if (OperatingSystem.IsWindows() == false)
             throw new NotSupportedException();
-        using var registryKey = Registry.CurrentUser.CreateSubKey(_registryKey);
+        using var registryKey = Registry.LocalMachine.CreateSubKey(_registryKey);
         registryKey.SetValue(key, value.Encrypt());
     }
     public static T GetValueFromRegitry<T>(string key) where T : class, new()
     {
         if (OperatingSystem.IsWindows() == false)
             throw new NotSupportedException();
-        using var registryKey = Registry.CurrentUser.OpenSubKey(_registryKey);
+        using var registryKey = Registry.LocalMachine.OpenSubKey(_registryKey);
         if (registryKey == null)
             return new T();
         var value = registryKey.GetValue(key)?.ToString();
